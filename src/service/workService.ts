@@ -3,33 +3,29 @@ import { Work } from "../entities/Work"
 
 const workService = {
     async getAll(page: number, limit: number){
-        const skip = (page - 1) * limit
+        const skip = (page - 1) * limit;
         const repo = () => AppDataSource.getRepository(Work)
         try{
-            const [work, total] = await repo().findAndCount({
-                relations: {
-                    features: true,
-                    technologies: {
-                        tools: true
-                    }
-                },
-                order: {
-                    created_at: "DESC"
-                },
-                skip,
-                take: limit
-            })
+            const [work, total] = await repo()
+                                        .createQueryBuilder("work")
+                                        .leftJoinAndSelect("work.technology", "technology")
+                                        .leftJoinAndSelect("technology.tool", "tool")
+                                        .leftJoinAndSelect("work.feature","feature")
+                                        .take(limit)
+                                        .skip(skip)
+                                        .orderBy("work.created_at", "DESC")
+                                        .getManyAndCount();
             return {
-                data: work,
                 pagination: {
                     total,
                     page,
                     limit,
                     totalPage: Math.ceil(total/limit)
-                }
+                },
+                data: work,
             }
         }catch(err){
-            console.error("ERROR:: - workService.ts:32", err)
+            console.error("Error:: - workService.ts:28", err)
         }
     }
 }

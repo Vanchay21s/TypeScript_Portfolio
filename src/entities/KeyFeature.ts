@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Work } from "./Work";
 
 @Entity("key_feature")
@@ -12,9 +12,9 @@ export class KeyFeature {
   @Column({ type: "text", nullable: true })
   description: string;
 
-  @ManyToOne(() => Work, (work) => work.features, { onDelete: "CASCADE" })
+  @ManyToOne(() => Work, (work) => work.feature, { onDelete: "CASCADE" })
   @JoinColumn({ name: "by_work" })
-  work: Work;
+  by_work: Work;
 
   @CreateDateColumn()
   created_at: Date;

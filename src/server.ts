@@ -18,9 +18,8 @@ app.use("/v1/work", workRoute)
 AppDataSource.initialize()
   .then(() => {console.log("Database connected ✅ - server.ts:19");})
   .catch((error) => {console.error("Database connection failed ❌ - server.ts:20", error);});
-
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:23`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:24`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:25`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:22`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:23`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:24`);
 });

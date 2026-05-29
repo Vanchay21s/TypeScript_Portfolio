@@ -10,20 +10,20 @@ export class Work {
   name: string;
   @Column()
   position: string;
-  @Column({ nullable: true })
+  @Column()
   image: string;
   @Column()
   github: string;
   @Column()
   demo: string;
-  @Column()
+  @Column() 
   framework: string;
   @Column("text")
   description: string;
   @CreateDateColumn()
   created_at: Date;
-  @OneToMany(() => KeyFeature, (feature) => feature.work)
-  features: KeyFeature[];
-  @OneToMany(() => Technology, (tech) => tech.work)
-  technologies: Technology[];
+  @OneToMany(() => KeyFeature, (feature) => feature.by_work)
+  feature: KeyFeature[];
+  @OneToMany(() => Technology, (tech) => tech.by_work)
+  technology: Technology[];
 }

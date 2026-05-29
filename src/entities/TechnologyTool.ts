@@ -9,9 +9,9 @@ export class TechnologyTool {
   @Column()
   name: string;
 
-  @ManyToOne(() => Technology, (tech) => tech.tools, { onDelete: "CASCADE" })
+  @ManyToOne(() => Technology, (technology) => technology.tool, { onDelete: "CASCADE" })
   @JoinColumn({ name: "by_technology" })
-  technology: Technology;
+  by_technology: Technology;
 
   @CreateDateColumn()
   created_at: Date;
