@@ -20,8 +20,6 @@ export class Profile {
     about: string
     @Column()
     date: Date
-    @Column()
-    password: string
     @CreateDateColumn()
     created_at: Date;
 }

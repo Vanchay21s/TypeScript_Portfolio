@@ -24,6 +24,6 @@ export class Work {
   created_at: Date;
   @OneToMany(() => KeyFeature, (feature) => feature.by_work)
   feature: KeyFeature[];
-  @OneToMany(() => Technology, (tech) => tech.by_work)
+  @OneToMany(() => Technology, (tech) => tech.by_work)  
   technology: Technology[];
 }
