@@ -1,0 +1,8 @@
+import { z } from "zod";
+
+export const registerSchema = z.object({
+  username: z.string().min(3, "Username is required & Expected string to have >=3 characters"),
+  email: z.email("Email is required"),
+  password: z.string().min(8, "Password is required &  The characters >=8 characters"),
+});
+export type registerDTO = z.infer<typeof registerSchema>;
