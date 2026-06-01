@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import { AppDataSource } from "../config/data-source";
 import { User } from "../entities/User";
 import { loginDTO, registerDTO } from "../schema/userSchema";
-import { create } from "node:domain";
 import { generateToken } from "../util/jwt";
 
 const repo = AppDataSource.getRepository(User);
@@ -39,7 +38,7 @@ export const authService = {
     const match = await bcrypt.compare(dto.password, user.password);
     if (!match) throw new Error("Wrong password");
     const token = generateToken(user);
-    
+
     const {password, ...safeUser} = user
     return { safeUser, token };
   },
