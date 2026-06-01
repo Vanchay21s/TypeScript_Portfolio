@@ -6,3 +6,9 @@ export const registerSchema = z.object({
   password: z.string().min(8, "Password is required &  The characters >=8 characters"),
 });
 export type registerDTO = z.infer<typeof registerSchema>;
+
+export const loginSchema = z.object({
+  email: z.email("Email is required"),
+  password: z.string().min(8, "Password is required & Most 8 charatcers")
+})
+export type loginDTO = z.infer<typeof loginSchema>;
