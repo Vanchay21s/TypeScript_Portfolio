@@ -62,7 +62,7 @@ export type loginDTO = z.infer<typeof loginSchema>;
 
 ```
 
-## 🗂️ Generate & Verify Token.
+## Generate & Verify Token.
 
 `/src/util/jwt.ts`
 
@@ -89,7 +89,7 @@ export const verifyToken = (token: string) => {
 
 <!-- -------------------------------------------- -->
 
-## 🗂️ Auth Service.
+## Auth Service.
 
 `/src/service/authService.ts`
 
@@ -120,7 +120,7 @@ export const authService = {
 
 <!-- -------------------------------------------- -->
 
-## 🗂️ Auth Controller.
+## Auth Controller.
 
 `/src/controller/authController.ts`
 
@@ -153,7 +153,7 @@ export const loginUser = async (req: Request, res: Response) => {
 
 <!-- -------------------------------------------- -->
 
-## 🗂️ Auth Controller.
+## 🗂️ Auth Router.
 
 `/src/routes/authRouter.ts`
 
@@ -164,3 +164,4 @@ export const authRouter = Router();
 
 authRouter.post("/login", loginUser);
 ```
+
