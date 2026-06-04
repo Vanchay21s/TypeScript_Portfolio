@@ -8,8 +8,8 @@
 --------------------------------------------------------------------
 
 ### 👤 Profile
-* **POST** `/v1/user` — Create new user — ``
-* **GET** `/v1/user` — Fetch all user — ``
+* **POST** `/v1/user` — Create new user — `✅ Done`
+* **GET** `/v1/user` — Fetch all user with Pagination & Search by name — `✅ Done`
 * **GET** `/v1/user/{id}` — Fetch specific user details — ``
 * **PUT** `/v1/user/{id}` — Update user information — ``
 * **PATCH** `/v1/users/{id}/role` — Change user role — ``

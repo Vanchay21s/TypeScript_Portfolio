@@ -1,8 +1,10 @@
+import { ILike } from "typeorm";
 import { AppDataSource } from "../config/data-source";
 import { User } from "../entities/User";
 import { UserRole } from "../entities/UserRole";
 import { userDTO } from "../schema/userSchema";
 import bcrypt from "bcrypt";
+import { any } from "zod";
 
 const repo = AppDataSource.getRepository(User);
 export const userService = {
@@ -24,4 +26,41 @@ export const userService = {
     const { password, ...result } = user;
     return result;
   },
+  // get user
+  async getUser(page: number, limit: number, search: string){
+    const offset = (page - 1) * limit
+
+    const getSearch: any = {}
+    if(search){
+      getSearch.username = ILike(`%${search}%`);
+    }
+
+    const [user, total] = await repo.findAndCount({
+        select: {
+          id: true,
+          username: true,
+          email: true,
+          role: true,
+          password: true,
+          created_at: true,
+        },
+        where: getSearch,
+        skip: offset,
+        take: limit,
+        order: {created_at: "DESC"}
+    })
+    console.log(user)
+    if(!user){
+      throw new Error("User not Found...")
+    }
+    return {
+      pagination: {
+        total,
+        page,
+        limit,
+        total_page: Math.ceil(total/limit)
+      },
+      data: user
+    }
+  }
 };
