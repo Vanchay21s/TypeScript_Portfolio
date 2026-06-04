@@ -30,16 +30,22 @@ export const loginUser = async (req: Request, res: Response) => {
   }
   try {
     const result = await authService.login(user.data);
+    if(!result){
+        return res.json({
+        message: "Something was wrong!",
+      });
+    }
     return res.json({
       message: "Login user successfully.",
       status: true,
-      data: result,
+      data: result.safeUser,
+      token: result.token
     });
-  } catch (err) {
-    console.error(err);
+  } catch (err: any) {
+    console.error(err.message);
     return res.status(500).json({
       message: "Internal server error",
-      status: false,
+      error: err.message
     });
   }
 };

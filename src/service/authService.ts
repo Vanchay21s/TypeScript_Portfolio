@@ -18,7 +18,7 @@ export const authService = {
     //
     const passwordHash = await bcrypt.hash(dto.password, 10);
     // create new enitity
-    const auth = repo.create({
+    const auth =  repo.create({
       username: dto.username,
       email: dto.email,
       password: passwordHash,
