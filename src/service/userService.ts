@@ -26,7 +26,7 @@ export const userService = {
     const { password, ...result } = user;
     return result;
   },
-  // get user
+  // get user -------------------
   async getUser(page: number, limit: number, search: string){
     const offset = (page - 1) * limit
 
@@ -34,7 +34,6 @@ export const userService = {
     if(search){
       getSearch.username = ILike(`%${search}%`);
     }
-
     const [user, total] = await repo.findAndCount({
         select: {
           id: true,
@@ -62,5 +61,32 @@ export const userService = {
       },
       data: user
     }
-  }
+  },
+  // get user -------------------
+  async findOne(id: number){
+    const user = await repo.findOne({
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        password: false,
+        role: true,
+        created_at: true,
+      },
+      where: {id: id}
+    })
+    if(!user){
+      throw new Error("User not found...!")
+    }
+    return user
+  },
+  async updateOne(id: number, dto: userDTO){
+    const user = await repo.updateAll({
+    username: dto.username,
+    email: dto.email,
+    where: {
+      id: id
+    }
+  });
+  },
 };
