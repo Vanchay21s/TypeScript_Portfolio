@@ -2,7 +2,7 @@ import { ILike } from "typeorm";
 import { AppDataSource } from "../config/data-source";
 import { User } from "../entities/User";
 import { UserRole } from "../entities/UserRole";
-import { userDTO } from "../schema/userSchema";
+import { updateUserDTO, userDTO } from "../schema/userSchema";
 import bcrypt from "bcrypt";
 import { any } from "zod";
 
@@ -27,43 +27,43 @@ export const userService = {
     return result;
   },
   // get user -------------------
-  async getUser(page: number, limit: number, search: string){
-    const offset = (page - 1) * limit
+  async getUser(page: number, limit: number, search: string) {
+    const offset = (page - 1) * limit;
 
-    const getSearch: any = {}
-    if(search){
+    const getSearch: any = {};
+    if (search) {
       getSearch.username = ILike(`%${search}%`);
     }
     const [user, total] = await repo.findAndCount({
-        select: {
-          id: true,
-          username: true,
-          email: true,
-          role: true,
-          password: true,
-          created_at: true,
-        },
-        where: getSearch,
-        skip: offset,
-        take: limit,
-        order: {created_at: "DESC"}
-    })
-    console.log(user)
-    if(!user){
-      throw new Error("User not Found...")
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        role: true,
+        password: true,
+        created_at: true,
+      },
+      where: getSearch,
+      skip: offset,
+      take: limit,
+      order: { created_at: "DESC" },
+    });
+    console.log(user);
+    if (!user) {
+      throw new Error("User not Found...");
     }
     return {
       pagination: {
         total,
         page,
         limit,
-        total_page: Math.ceil(total/limit)
+        total_page: Math.ceil(total / limit),
       },
-      data: user
-    }
+      data: user,
+    };
   },
   // get user -------------------
-  async findOne(id: number){
+  async findOne(id: number) {
     const user = await repo.findOne({
       select: {
         id: true,
@@ -73,20 +73,37 @@ export const userService = {
         role: true,
         created_at: true,
       },
-      where: {id: id}
-    })
-    if(!user){
-      throw new Error("User not found...!")
+      where: { id: id },
+    });
+    if (!user) {
+      throw new Error("User not found...!");
     }
-    return user
+    return user;
   },
-  async updateOne(id: number, dto: userDTO){
-    const user = await repo.updateAll({
-    username: dto.username,
-    email: dto.email,
-    where: {
-      id: id
+  async updateOne(id: number, dto: updateUserDTO) {
+    const user = await repo.update(
+      { id: id },
+      {
+        username: dto.username,
+        email: dto.email,
+      },
+      
+    );
+    console.log(user)
+    if (user.affected === 0) {
+      throw new Error("User not found...!");
     }
-  });
+    const result = await repo.findOne({
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        password: false,
+        role: true,
+        created_at: true,
+      },
+      where: { id: id },
+    });
+    return result
   },
 };

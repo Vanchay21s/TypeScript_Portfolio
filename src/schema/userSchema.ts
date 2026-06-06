@@ -44,3 +44,9 @@ export const userSchema = z.object({
     }
 )
 export type userDTO = z.infer<typeof userSchema>
+
+export const updateUserSchema = z.object({
+  username: z.string().min(3, "Username is required & Expected string to have >=3 characters"),
+  email: z.email("Email is required")
+})
+export type updateUserDTO = z.infer<typeof updateUserSchema>

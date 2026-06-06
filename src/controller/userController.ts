@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { userSchema } from "../schema/userSchema";
+import { updateUserSchema, userSchema } from "../schema/userSchema";
 import { userService } from "../service/userService";
+import { error } from "node:console";
 
 export const addUser = async (req: Request, res: Response) => {
   try {
@@ -75,3 +76,28 @@ export const getAllById = async (req: Request, res: Response) => {
     });
   }
 };
+// updateUser
+export const updateUser = async(req: Request, res: Response) => {
+  const id = Number(req.params.id)
+  const user = updateUserSchema.safeParse(req.body)
+  if (!user.success) {
+      return res.json({
+        message: user.error.issues,
+        status: false,
+      });
+    }
+  try {
+    const result = await userService.updateOne(id, user.data)
+    return res.json({
+      message: "Updated user successfully.",
+      status: 200,
+      data: result
+    })
+  } catch (err: any) {
+    console.error(err.message)
+    return res.status(500).json({
+      message: "Internal Server error",
+      error: err.message
+    })
+  }
+}
