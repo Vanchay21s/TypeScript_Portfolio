@@ -1,5 +1,6 @@
 import { date, email, z } from "zod";
 import { ro } from "zod/locales";
+import { UserRole } from "../entities/UserRole";
 
 export const registerSchema = z.object({
   username: z.string().min(3, "Username is required & Expected string to have >=3 characters"),
@@ -50,3 +51,8 @@ export const updateUserSchema = z.object({
   email: z.email("Email is required")
 })
 export type updateUserDTO = z.infer<typeof updateUserSchema>
+
+export const changeRoleSchema = z.object({
+  role: z.nativeEnum(UserRole),
+})
+export type changeRoleDTO = z.infer<typeof changeRoleSchema>
