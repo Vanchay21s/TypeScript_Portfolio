@@ -80,6 +80,26 @@ export const userService = {
     }
     return user;
   },
+  // delete user
+  async deleteOne(id: number){
+    const user = await repo.findOne({
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        password: false,
+        role: true,
+        created_at: true,
+      },
+      where: { id: id },
+    })
+    if (!user) {
+      throw new Error("User not found...!");
+    }
+    await repo.delete(id)
+    return user
+  },
+  // update user -----------------------------------
   async updateOne(id: number, dto: updateUserDTO) {
     const user = await repo.update(
       { id: id },

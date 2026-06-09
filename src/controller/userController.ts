@@ -76,6 +76,30 @@ export const getAllById = async (req: Request, res: Response) => {
     });
   }
 };
+// deleteUser
+export const deleteUser = async(req: Request, res: Response) => {
+  const id = Number(req.params.id);
+  try {
+    const result = await userService.deleteOne(id)
+    if(!result){
+      return res.json({
+      message: "Something was wrong!!!",
+      status: false,
+    })
+    }
+    return res.json({
+      message: "Deleted user successfully.",
+      status: true,
+      data: result
+    })
+  } catch (err: any) {
+    console.error(err.messgae)
+    return res.status(500).json({
+      message: "Internal server error",
+      error: err.message,
+    })
+  }
+}
 // updateUser
 export const updateUser = async(req: Request, res: Response) => {
   const id = Number(req.params.id)
