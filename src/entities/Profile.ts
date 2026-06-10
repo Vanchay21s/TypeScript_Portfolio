@@ -19,9 +19,7 @@ export class Profile {
     @Column("text")
     about: string
     @Column()
-    dateStart: Date
-    @Column()
-    dateEnd: Date
+    date: Date
     @CreateDateColumn()
     created_at: Date;
 }

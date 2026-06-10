@@ -1,14 +1,13 @@
-
-import z from "zod"
+import z from "zod";
 
 export const profileSchema = z.object({
-    fullname: z.string().min(1, "Full name is required"),
-  username: z.string().nullable().optional(),
-  image: z.string().min(1, "Image is required"),
+  fullname: z.string().min(1, "Full name is required"),
+  username: z.string().optional(),
+  image: z.custom<Express.Multer.File>(),
   phone: z.string().min(1, "Phone is required"),
   email: z.email("Invalid email address"),
   address: z.string(),
   about: z.string(),
-  dateStart: z.coerce.date(),
-  dateEnd: z.coerce.date(),
-})
+  date: z.coerce.date(),
+});
+export type profileDTO = z.infer<typeof profileSchema>
