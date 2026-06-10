@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-import { registerSchema } from "../schema/userSchema";
+import { loginSchema, registerSchema } from "../schema/userSchema";
 import { authService } from "../service/authService";
 
-export const authController = async (req: Request, res: Response) => {
+export const signupUser = async (req: Request, res: Response) => {
   const result = registerSchema.safeParse(req.body);
-  console.log(result)
   if (!result.success) {
     return res.status(400).json(result.error.issues);
   }
@@ -20,6 +19,33 @@ export const authController = async (req: Request, res: Response) => {
     return res.status(500).json({
       message: "Internal server error",
       status: false,
+    });
+  }
+};
+export const loginUser = async (req: Request, res: Response) => {
+  console.log("OK_1 - authController.ts:26");
+  const user = loginSchema.safeParse(req.body);
+  if (!user.success) {
+    return res.status(400).json(user.error.issues);
+  }
+  try {
+    const result = await authService.login(user.data);
+    if(!result){
+        return res.json({
+        message: "Something was wrong!",
+      });
+    }
+    return res.json({
+      message: "Login user successfully.",
+      status: true,
+      data: result.safeUser,
+      token: result.token
+    });
+  } catch (err: any) {
+    console.error(err.message);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: err.message
     });
   }
 };
