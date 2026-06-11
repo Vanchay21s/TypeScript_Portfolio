@@ -9,6 +9,6 @@ userRouter.get("/", getAllUser); // get all user with pagination
 userRouter.get("/:id", getAllById); // get user by id
 userRouter.delete("/:id", deleteUser); // Change role of user 
 userRouter.patch("/:id", updateUser); // get username and email 
- userRouter.post("/:id/change_role", changeRoleUser); // Change role of user 
+userRouter.post("/:id/change_role", changeRoleUser); // Change role of user 
 
  
