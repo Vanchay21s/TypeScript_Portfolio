@@ -14,13 +14,19 @@ create table if not exists education (
     name varchar(255) null,
     major varchar(255) null,
     gpa varchar(255) null,
-    year varchar(255) null,
+    data_start date null,
+    data_end date null,
+    logo text null,
     created_at timestamp default now(),
 );
 -- 4 education_degres
 create table if not exists education_degres(
     id serial primary key,
-    image_url varchar(500) not null,
+    originalname varchar(500) not null,
+    filename varchar(500) not null,
+    path text not null,
+    size int not null,
+    encoding varchar(500) not null,
     created_at timestamp default now(),
     by_education int not null,
     constraint fk_education

@@ -20,10 +20,10 @@
 --------------------------------------------------------------------
 
 ### 👤 Profile
-* **POST**   `http://localhost:5002/v1/profile` — Create user profile — ``
-* **GET**    `http://localhost:5002/v1/profile` — Fetch all profiles — ``
-* **GET**    `http://localhost:5002/v1/profile/{id}` — Fetch specific profile details — ``
-* **PATCH**  `http://localhost:5002/v1/profile/{id}` — Update profile information — ``
+* **POST**   `http://localhost:5002/v1/profile` — Create user profile `✅ Done`
+* **GET**    `http://localhost:5002/v1/profile` — Fetch all profiles — `✅ Done`
+* **GET**    `http://localhost:5002/v1/profile/{id}` — Fetch specific profile details — `✅ Done`
+* **PATCH**  `http://localhost:5002/v1/profile/{id}` — Update profile information — `✅ Done`
 
 --------------------------------------------------------------------
 
