@@ -1,6 +1,6 @@
 
 export const eductionService = {
-    async create(){
-        const edu = 
-    }
+    // async create(){
+    //     const edu = 
+    // }
 } 

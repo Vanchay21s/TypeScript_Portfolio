@@ -5,7 +5,7 @@ export const profileSchema = z.object({
   username: z.string().optional(),
   image: z.custom<Express.Multer.File>(),
   phone: z.string().min(1, "Phone is required"),
-  email: z.email("Invalid email address"),
+  email: z.email("Invalid email address").optional(),
   address: z.string(),
   about: z.string(),
   date: z.coerce.date(),

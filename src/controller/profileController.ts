@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
-import { profileSchema, updateProfileSchema } from "../schema/profileSchema";
+import { 
+  profileSchema, 
+} from "../schema/profileSchema";
 import multer from "multer";
 import { date } from "zod";
 import { profileService } from "../service/profileService";
@@ -30,11 +32,10 @@ export const addProfile = async (req: Request, res: Response) => {
 };
 export const getAlllProfile = async (req: Request, res: Response) => {
   try {
-    console.log("asdasdasd")
     const profile = await profileService.find()
     console.log(profile)
     return res.json({
-      message: "Gel=t all profile successfully...",
+      message: "Gel all profile successfully...",
       status: true,
       data:  profile
     })
@@ -65,7 +66,7 @@ export const getProfileById = async (req: Request, res: Response) => {
 }
 export const updateProfile = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
-  const reqProfile = updateProfileSchema.safeParse({...req.body, image: req.file})
+  const reqProfile = profileSchema.safeParse({...req.body, image: req.file})
   if(!reqProfile.success){
     return res.json({
       message: reqProfile.error.issues,
