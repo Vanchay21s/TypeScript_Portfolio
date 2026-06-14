@@ -12,6 +12,6 @@ export type educationDTO = z.infer<typeof educationSchema>
 
 export const uploadDegresSchema = z.object({
     images: z.custom<Express.Multer.File[]>(),
-    by_education: z.number()
+    by_education: z.coerce.number()
 })
 export type uploadDegresDTO = z.infer<typeof uploadDegresSchema>

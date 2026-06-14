@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { educationSchema } from "../schema/educationSchema";
+import { educationSchema, uploadDegresSchema } from "../schema/educationSchema";
 import { educationService } from "../service/eductionService";
 
 export const addEducation = async (req: Request, res: Response) => {
@@ -13,7 +13,7 @@ export const addEducation = async (req: Request, res: Response) => {
   try {
     const result = await educationService.create(education.data)
     return res.json({
-        message: "OK.....",
+        message: "OK....",
         status: true,
         data: result
     })
@@ -84,3 +84,26 @@ export const updateEducation = async (req: Request, res: Response) => {
     })
   }
 }
+export const educationUpload = async (req: Request, res: Response) => {
+  const reqUploads = uploadDegresSchema.safeParse({...req.body, images: req.files})
+  if (!reqUploads.success) {
+    return res.json({
+      message: reqUploads.error.issues,
+      status: false,
+    });
+  }
+  try {
+    const result = await educationService.uploadDegres(reqUploads.data)
+    return res.json({
+        message: "OK.....educationUpload",
+        status: true,
+        data: result
+    })
+  } catch (err: any) {
+    console.error(err.message)
+    return res.status(200).json({
+      message: "Internal Server Error",
+      error: err.message
+    })
+  }
+} 

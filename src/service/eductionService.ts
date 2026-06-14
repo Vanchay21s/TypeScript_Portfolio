@@ -31,6 +31,7 @@ export const educationService = {
         logo: true,
         created_at: true,
       },
+      relations: {degres: true},
       order: { created_at: "DESC" },
     });
     if (!education) {
@@ -90,13 +91,13 @@ export const educationService = {
     return result;
   },
   async uploadDegres(dto: uploadDegresDTO) {
-    const degrees = dto.images.map(files => 
+    const degrees = dto.images.map(file => 
         degreesRepo.create({
-            originalname: dto.images[0].originalname,
-            filename: dto.images[1].filename,
-            path: dto.images[2].path,
-            size: dto.images[3].size,
-            encoding: dto.images[4].encoding,
+            originalname: file.originalname,
+            filename: file.filename,
+            path: file.path,
+            size: file.size,
+            encoding: file.encoding,
             by_education: {
                 id: dto.by_education
             },
