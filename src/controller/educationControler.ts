@@ -85,21 +85,41 @@ export const updateEducation = async (req: Request, res: Response) => {
   }
 }
 export const educationUpload = async (req: Request, res: Response) => {
+  console.log("asdasd - educationControler.ts:88")
   const reqUploads = uploadDegresSchema.safeParse({...req.body, images: req.files})
+  
   if (!reqUploads.success) {
     return res.json({
+      msg: "asdasdasd",
       message: reqUploads.error.issues,
       status: false,
     });
   }
   try {
-    const result = await educationService.uploadDegres(reqUploads.data)
+    const degrees = await educationService.uploadDegres(reqUploads.data)
     return res.json({
         message: "OK.....educationUpload",
         status: true,
-        data: result
+        data: degrees
     })
   } catch (err: any) {
+    console.error(err.message)
+    return res.status(200).json({
+      message: "Internal Server Error",
+      error: err.message
+    })
+  }
+} 
+export const educationDeleteUploads = async (req: Request, res: Response) => {
+  const id = Number(req.params.id)
+  try {
+    const result = await educationService.deleteDegrees(id)
+    return res.json({
+        message: "Deleted.....educationUpload",
+        status: true,
+        data: result
+    })
+  } catch (err: any) {  
     console.error(err.message)
     return res.status(200).json({
       message: "Internal Server Error",

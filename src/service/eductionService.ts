@@ -31,7 +31,7 @@ export const educationService = {
         logo: true,
         created_at: true,
       },
-      relations: {degres: true},
+      relations: { degres: true },
       order: { created_at: "DESC" },
     });
     if (!education) {
@@ -90,21 +90,26 @@ export const educationService = {
     });
     return result;
   },
+  // uploads degrees ----------------
   async uploadDegres(dto: uploadDegresDTO) {
-    const degrees = dto.images.map(file => 
-        degreesRepo.create({
-            originalname: file.originalname,
-            filename: file.filename,
-            path: file.path,
-            size: file.size,
-            encoding: file.encoding,
-            by_education: {
-                id: dto.by_education
-            },
-        })
-    )
-    await degreesRepo.save(degrees)
-    const result = await degreesRepo.findOne({
+    const degrees = dto.images.map((file) =>
+      degreesRepo.create({
+        originalname: file.originalname,
+        filename: file.filename,
+        path: file.path,
+        size: file.size,
+        encoding: file.encoding,
+        by_education: {
+          id: dto.by_education,
+        },
+      }),
+    );
+    await degreesRepo.save(degrees);
+    return degrees;
+  },
+  // delete degrees ----------------------
+  async deleteDegrees(id: number) {
+    const degrees = await degreesRepo.findOne({
       select: {
         id: true,
         originalname: true,
@@ -115,10 +120,12 @@ export const educationService = {
         by_education: true,
         created_at: true,
       },
-      where: { by_education: {
-        id: dto.by_education
-      }},
+      where: { id: id },
     });
-    return result;
+    if (!degrees) {
+      throw new Error("User not found...!");
+    }
+    await degreesRepo.delete(id);
+    return degrees;
   },
 };

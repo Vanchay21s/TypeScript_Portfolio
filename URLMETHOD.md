@@ -30,17 +30,14 @@
 ---
 
 ### 🎓 Education
+- **POST** `http://localhost:5002/v1/uploads` — uploads degrees — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/remove_degrees/{id}` — Remove degrees — `✅ Done`
 
-- **POST** `http://localhost:5002/v1/education` — Add education entry — ``
-- **GET** `http://localhost:5002/v1/education` — Fetch all education entries — ``
-- **GET** `http://localhost:5002/v1/education/{id}` — Fetch specific education entry — ``
-- **PATCH** `http://localhost:5002/v1/education/{id}` — Update education entry — ``
-- **DELETE** `http://localhost:5002/v1/education/{id}` — Remove education entry — ``
-
-### 🎓 Education_Degres
-
-- **POST** `http://localhost:5002/v1/education_degree` — Add education entry — ``
-- **DELETE** `http://localhost:5002/v1/education_degree/{id}` — Remove education entry — ``
+- **POST** `http://localhost:5002/v1/education` — Add education entry — `✅ Done`
+- **GET** `http://localhost:5002/v1/education` — Fetch all education entries — `✅ Done`
+- **GET** `http://localhost:5002/v1/education/{id}` — Fetch specific education entry — `✅ Done`
+- **PATCH** `http://localhost:5002/v1/education/{id}` — Update education entry — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/education/{id}` — Remove education entry — `✅ Done`
 
 ---
 
