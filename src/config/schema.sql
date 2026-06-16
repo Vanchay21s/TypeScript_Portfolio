@@ -34,3 +34,11 @@ create table if not exists education_degres(
         references education(id)
         on delete cascade
 );
+-- 5 skill 
+create table if not exists skill(
+    id serial primary key,
+    name varchar(255) not null,
+    logo_url text,
+    rating decimal(5,2) not null,
+    created_at timestamp default now(),
+);

@@ -43,10 +43,10 @@
 
 ### ⚡ Skills
 
-- **POST** `http://localhost:5002/v1/skill` — Add new skill — ``
-- **GET** `http://localhost:5002/v1/skill` — Fetch all skills — ``
-- **GET** `http://localhost:5002/v1/skill/{id}` — Fetch specific skill details — ``
-- **DELETE** `http://localhost:5002/v1/skill/{id}` — Remove skill record — ``
+- **POST** `http://localhost:5002/v1/skill` — Add new skill — `✅ Done`
+- **GET** `http://localhost:5002/v1/skill` — Fetch all skills — `✅ Done`
+- **GET** `http://localhost:5002/v1/skill/{id}` — Fetch specific skill details — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/skill/{id}` — Remove skill record — `✅ Done`
 
 ---
 
