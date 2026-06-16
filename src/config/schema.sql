@@ -42,3 +42,63 @@ create table if not exists skill(
     rating decimal(5,2) not null,
     created_at timestamp default now(),
 );
+
+-- 6 work
+create table if not exists work (
+    id serial primary key,
+    name  varchar(255),
+    position  varchar(255),
+    github text,
+    demo text,
+    framework  varchar(255),
+    description text,
+    created_at timestamp default now(),
+);
+
+-- 7 image_work 
+create table if not exists image_work (
+    id serial primary key,
+    originalname varchar(255) NOT NULL,
+    path TEXT NOT NULL,
+    filename VARCHAR(255) NOT NULL,
+    size INT NOT NULL,
+    encoding VARCHAR(255) NOT NULL,
+    by_work INT NOT NULL,
+    created_at timestamp default now(),
+    constraint fk_image_work
+        foreign key (by_work) references work(id)
+        on delete cascade
+);
+
+-- 8 technology 
+create table if not exists technology (
+    id saerial primary key,
+    name VARCHAR(255),
+    by_work INT NOT NULL,
+    created_at timestamp default now(),
+    constraint fk_technology_work
+        foreign key (by_work) references work(id)
+        on delete cascade
+);
+
+-- 9 technology_tools
+create table if not exists technology_tool (
+    id serial primary key,
+    name varchar(255) null,
+    by_technology int not null,
+    created_at timestamp default now(),
+    constraint fk_tool_technology
+        foreign key (by_technology) references technology(id)
+        on delete cascade
+);
+-- 10 key_feature
+create table if not exists key_feature (
+    id serial primary key,
+    name varchar(255) null,
+    by_work int not null,
+    description text null,
+    created_at timestamp default now(),
+    constraint fk_feature_work
+        foreign key (by_work) references work(id)
+        on delete cascade
+);
