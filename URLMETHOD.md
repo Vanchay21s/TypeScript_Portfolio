@@ -53,7 +53,7 @@
 ### 💼 Work Experience
 
 - **POST** `http://localhost:5002/v1/work` — Add employment history — ``
-- **GET** `http://localhost:5002/v1/work` — Fetch all employment history — ``
+- **GET** `http://localhost:5002/v1/work` — Fetch all employment history — `✅ Done`
 - **GET** `http://localhost:5002/v1/work/{id}` — Fetch specific employment details — ``
 - **PUT** `http://localhost:5002/v1/work/{id}` — Update employment record — ``
 - **DELETE** `http://localhost:5002/v1/work/{id}` — Remove employment record — ``
@@ -62,28 +62,28 @@
 
 ### 🚀 Key Features
 
-- **POST** `http://localhost:5002/v1/feature` — Add product feature — ``
-- **GET** `http://localhost:5002/v1/feature` — Fetch all product features — ``
-- **GET** `http://localhost:5002/v1/feature/{id}` — Fetch specific feature details — ``
-- **DELETE** `http://localhost:5002/v1/feature/{id}` — Remove product feature — ``
+- **POST** `http://localhost:5002/v1/feature` — Add product feature — `✅ Done`
+- **GET** `http://localhost:5002/v1/feature` — Fetch all product features — `✅ Done`
+- **GET** `http://localhost:5002/v1/feature/{id}` — Fetch specific feature details — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/feature/{id}` — Remove product feature — `✅ Done`
 
 ---
 
 ### 💻 Technology
 
-- **POST** `http://localhost:5002/v1/technology` — Add core technology stack item — ``
-- **GET** `http://localhost:5002/v1/technology` — Fetch all stack items — ``
-- **GET** `http://localhost:5002/v1/technology/{id}` — Fetch specific technology details — ``
-- **DELETE** `http://localhost:5002/v1/technology/{id}` — Remove technology stack item — ``
+- **POST** `http://localhost:5002/v1/technology` — Add core technology stack item — `✅ Done`
+- **GET** `http://localhost:5002/v1/technology` — Fetch all stack items — `✅ Done`
+- **GET** `http://localhost:5002/v1/technology/{id}` — Fetch specific technology details — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/technology/{id}` — Remove technology stack item — `✅ Done`
 
 ---
 
 ### 🛠️ Technology Tools
 
-- **POST** `http://localhost:5002/v1/tool` — Add development tool — ``
-- **GET** `http://localhost:5002/v1/tool` — Fetch all development tools — ``
-- **GET** `http://localhost:5002/v1/tool/{id}` — Fetch specific tool details — ``
-- **DELETE** `http://localhost:5002/v1/tool/{id}` — Remove development tool — ``
+- **POST** `http://localhost:5002/v1/tool` — Add development tool — `✅ Done`
+- **GET** `http://localhost:5002/v1/tool` — Fetch all development tools — `✅ Done`
+- **GET** `http://localhost:5002/v1/tool/{id}` — Fetch specific tool details — `✅ Done`
+- **DELETE** `http://localhost:5002/v1/tool/{id}` — Remove development tool — `✅ Done`
 
 1. ចូរនិយាយប្រាប់ខ្ញុំអំពីខ្លួនអ្នក។
 2. ហេតុអ្វីអ្នកចង់ធ្វើការនៅទីនេះ?
