@@ -4,7 +4,6 @@ import { User } from "../entities/User";
 import { UserRole } from "../entities/UserRole";
 import { changeRoleDTO, updateUserDTO, userDTO } from "../schema/userSchema";
 import bcrypt from "bcrypt";
-import { any } from "zod";
 
 const repo = AppDataSource.getRepository(User);
 export const userService = {
@@ -29,11 +28,6 @@ export const userService = {
   // get user -------------------
   async getUser(page: number, limit: number, search: string) {
     const offset = (page - 1) * limit;
-
-    const getSearch: any = {};
-    if (search) {
-      getSearch.username = ILike(`%${search}%`);
-    }
     const [user, total] = await repo.findAndCount({
       select: {
         id: true,
@@ -43,7 +37,6 @@ export const userService = {
         password: true,
         created_at: true,
       },
-      // where: getSearch,
       skip: offset,
       take: limit,
       order: { created_at: "DESC" },
@@ -81,7 +74,7 @@ export const userService = {
     return user;
   },
   // delete user
-  async deleteOne(id: number){
+  async deleteOne(id: number) {
     const user = await repo.findOne({
       select: {
         id: true,
@@ -92,12 +85,12 @@ export const userService = {
         created_at: true,
       },
       where: { id: id },
-    })
+    });
     if (!user) {
       throw new Error("User not found...!");
     }
-    await repo.delete(id)
-    return user
+    await repo.delete(id);
+    return user;
   },
   // update user -----------------------------------
   async updateOne(id: number, dto: updateUserDTO) {
@@ -107,9 +100,8 @@ export const userService = {
         username: dto.username,
         email: dto.email,
       },
-      
     );
-    console.log(user)
+    console.log(user);
     if (user.affected === 0) {
       throw new Error("User not found...!");
     }
@@ -124,13 +116,10 @@ export const userService = {
       },
       where: { id: id },
     });
-    return result
+    return result;
   },
-  async changeRole(id: number, role: changeRoleDTO){
-    const user = await repo.update(
-      {id: id},
-      {role: role.role}
-    ) 
+  async changeRole(id: number, role: changeRoleDTO) {
+    const user = await repo.update({ id: id }, { role: role.role });
     if (user.affected === 0) {
       throw new Error("User not found...!");
     }
@@ -145,17 +134,11 @@ export const userService = {
       },
       where: { id: id },
     });
-    return result
+    return result;
   },
   // Filter by name  --------------
-  async filterByName(page: number, limit: number, search: string){
+  async filterByName(page: number, limit: number, search: string) {
     const offset = (page - 1) * limit;
-  console.log({
-    page,
-    limit,
-    search,
-    offset
-  });
     const getSearch: any = {};
     if (search) {
       getSearch.username = ILike(`%${search}%`);
@@ -174,7 +157,6 @@ export const userService = {
       take: limit,
       order: { created_at: "DESC" },
     });
-    console.log(user);
     if (!user) {
       throw new Error("User not Found...");
     }

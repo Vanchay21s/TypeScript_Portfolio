@@ -5,7 +5,7 @@ import { addEducation, educationDeleteUploads, educationUpload, getAllEducation,
 export const educationRouter = Router();
 
 educationRouter.post("/", upload.single('image'), addEducation);
-educationRouter.delete("/remove_degrees/:id", educationDeleteUploads);
+educationRouter.delete("/remove_upload/:id", educationDeleteUploads);
 educationRouter.get("/", getAllEducation);
 educationRouter.get("/:id", getEducationById);
 educationRouter.patch("/:id", upload.single('image'), updateEducation);
