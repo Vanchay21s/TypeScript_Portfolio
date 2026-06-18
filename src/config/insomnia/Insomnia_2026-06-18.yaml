@@ -1,0 +1,1390 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: TypeScript
+meta:
+  id: wrk_ad43126d36c849178644ea0a4b2399a8
+  created: 1780002558671
+  modified: 1780002558671
+  description: ""
+collection:
+  - name: Work
+    meta:
+      id: fld_38c337e64fbf458c9e968a89b64fc781
+      created: 1780002651228
+      modified: 1780002651228
+      sortKey: -1780002651228
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/work
+        name: find work
+        meta:
+          id: req_1529014e016b454a8f0c2edb4a135152
+          created: 1780002653584
+          modified: 1781619220198
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653584
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work
+        name: add work
+        meta:
+          id: req_49e9525581db4f78877267f3e8e16a2f
+          created: 1781618474895
+          modified: 1781781358652
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653684
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Portfolio",
+            	"position": "dto.position",
+            	"github": "dto.github",
+            	"demo": "dto.demo",
+            	"framework": "dto.framework",
+            	"description": "dto.description"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work?page=1&limit=10
+        name: find work with limit & page
+        meta:
+          id: req_7d74326430e14027a85e65f4a3fa85c3
+          created: 1781619172029
+          modified: 1781619212861
+          isPrivate: false
+          description: ""
+          sortKey: -1779519649090.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work/uploads
+        name: uploads picture of work
+        meta:
+          id: req_36bedf7daf0f4d30b385bfc380e1674c
+          created: 1781698124284
+          modified: 1781698239250
+          isPrivate: false
+          description: ""
+          sortKey: -1779519649040.5
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: by_work
+              value: "1"
+              description: ""
+              disabled: false
+              multiline: false
+              type: text
+            - name: images
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\Admin\Pictures\Screenshots\Screenshot 2026-06-10 182135.png
+              type: file
+            - name: images
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work/remove_upload/2
+        name: remove picture of work
+        meta:
+          id: req_e1f59cc011f1438791a090142b658c0c
+          created: 1781698140499
+          modified: 1781698262985
+          isPrivate: false
+          description: ""
+          sortKey: -1779519648990.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work/2
+        name: update work
+        meta:
+          id: req_dab414b83e2e4b35b29500720d980f3c
+          created: 1781783878077
+          modified: 1781783921795
+          isPrivate: false
+          description: ""
+          sortKey: -1779519649065.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Portfolio-kh",
+            	"position": "dto.position",
+            	"github": "dto.github",
+            	"demo": "dto.demo",
+            	"framework": "dto.framework",
+            	"description": "dto.description"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work/2
+        name: find work id
+        meta:
+          id: req_9c20b15c7c8244b89a26037a8e63fd0c
+          created: 1781783934352
+          modified: 1781783995611
+          isPrivate: false
+          description: ""
+          sortKey: -1779519649078
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/work/2
+        name: delete work id
+        meta:
+          id: req_66e0b3bb848647e8abe4c2ed1ed907e5
+          created: 1781784206611
+          modified: 1781784209614
+          isPrivate: false
+          description: ""
+          sortKey: -1779519649071.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Auth
+    meta:
+      id: fld_5b8788c982fc42979e827f08b9327f5b
+      created: 1780266376252
+      modified: 1780266376252
+      sortKey: -1780266376252
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/auth/signup
+        name: Sign up
+        meta:
+          id: req_347b3fbd4d81406bbd42b58716be6ffb
+          created: 1780266380011
+          modified: 1781003044829
+          isPrivate: false
+          description: ""
+          sortKey: -1780266380011
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            
+            	{
+            		"username": "vanchay",
+            		"email": "vanchay@gmail.com",
+            		"password": "vanchay@123",
+            		"passwordConfirm": "vanchay@123"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/auth/login
+        name: Login
+        meta:
+          id: req_0f61c2bcd2054569a1334baf7b0e53c1
+          created: 1780350678988
+          modified: 1780357623456
+          isPrivate: false
+          description: ""
+          sortKey: -1780134516797.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            
+            	{
+            		"email": "vanchay@gmail.com",
+            		"password": "vanchay@123"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: User
+    meta:
+      id: fld_93e6bdf63d014bf4b1c1349a8d8a6c16
+      created: 1780531002264
+      modified: 1780531002264
+      sortKey: -1780531002264
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/user
+        name: addUser
+        meta:
+          id: req_dcd4f544cf7d457f88d8c2c1300576ba
+          created: 1780531006437
+          modified: 1780531140921
+          isPrivate: false
+          description: ""
+          sortKey: -1780531006437
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"username": "levi",
+            		"email": "levi@gmail.com",
+            		"password": "vanchay@123",
+            		"passwordConfirm": "vanchay@123",
+            		"role": "user"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user?page=1&limit=3
+        name: Find user with limit and page
+        meta:
+          id: req_5c099f2aff64414292921408f0ed325d
+          created: 1780588040277
+          modified: 1780594196838
+          isPrivate: false
+          description: ""
+          sortKey: -1780398693224
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user
+        name: Find user
+        meta:
+          id: req_c83c7a01ba1a4859b56ccbcbee37be75
+          created: 1780592697451
+          modified: 1781001226515
+          isPrivate: false
+          description: ""
+          sortKey: -1780464849830.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user/1
+        name: Find user by ID
+        meta:
+          id: req_aff5abf356684b34a688ae48d6618eea
+          created: 1780642225196
+          modified: 1780642236850
+          isPrivate: false
+          description: ""
+          sortKey: -1780398693124
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user/1
+        name: updateUser
+        meta:
+          id: req_e1a169bd9ae94d17b005cec627f1e261
+          created: 1780768067962
+          modified: 1780768415532
+          isPrivate: false
+          description: ""
+          sortKey: -1780398693024
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"username": "vanchayy",
+            		"email": "vanchay@gmail.com"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user/1/change_role
+        name: changeRole
+        meta:
+          id: req_adacd792490a46218f1f148d963887de
+          created: 1781002866454
+          modified: 1781008400918
+          isPrivate: false
+          description: ""
+          sortKey: -1781002866454
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"role": "editor"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/user/filter?search=a
+        name: Filter by name
+        meta:
+          id: req_469b67c6a162485a9ffbc2c0b3f8294e
+          created: 1781008420412
+          modified: 1781012539970
+          isPrivate: false
+          description: ""
+          sortKey: -1781002866554
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: profile
+    meta:
+      id: fld_749db188961d4aa9b77fb89384da80ed
+      created: 1781092288876
+      modified: 1781092313534
+      sortKey: -1781092288876
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/profile
+        name: addProfile
+        meta:
+          id: req_4d95d57d17184566ad748d21c746c926
+          created: 1781092299229
+          modified: 1781094556990
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321887
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: fullname
+              value: ErenYeager
+            - name: username
+              value: eren
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              multiline: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+            - name: phone
+              value: "65654989"
+              description: ""
+              disabled: false
+            - name: email
+              value: vsanasdchsay@gmail.com
+              description: ""
+              disabled: false
+            - name: address
+              value: sdsd
+              description: ""
+              disabled: false
+            - name: about
+              value: asdasd
+              description: ""
+              disabled: false
+            - name: date
+              value: 2026-06-12
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/profile
+        name: find profile
+        meta:
+          id: req_7aba71473cb44039a7b697f2c631af8d
+          created: 1781092321787
+          modified: 1781445514542
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321787
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/profile/1
+        name: find profile by id
+        meta:
+          id: req_27146988876a4317bfec4de59fce3214
+          created: 1781445524173
+          modified: 1781445547698
+          isPrivate: false
+          description: ""
+          sortKey: -1781047594170.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/profile/1
+        name: update profile
+        meta:
+          id: req_86a0da2a13c9498faee4507ffb2b3322
+          created: 1781445987039
+          modified: 1781450482798
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321837
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: fullname
+              value: ErenYeager
+            - name: username
+              value: Vanchay
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              multiline: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+            - name: phone
+              value: "65654989"
+              description: ""
+              disabled: false
+            - name: email
+              value: vanchay@gmail.com
+              description: ""
+              disabled: false
+            - name: address
+              value: sdsd
+              description: ""
+              disabled: false
+            - name: about
+              value: asdasd
+              description: ""
+              disabled: false
+            - name: date
+              value: 2026-06-12
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: education'
+    meta:
+      id: fld_49e591aefd8e486fa485a260018f2981
+      created: 1781452515414
+      modified: 1781452515414
+      sortKey: -1780811645570
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/education
+        name: addEducation
+        meta:
+          id: req_1c4327fb7bfc4adb91f2e683ff04b370
+          created: 1781452515414
+          modified: 1781457450148
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321887
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: name
+              value: Svay Rieng University
+            - name: major
+              value: IT
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              multiline: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+            - name: gpa
+              value: "3.49"
+              description: ""
+              disabled: false
+            - name: date_start
+              value: 2020-12-01
+              description: ""
+              disabled: false
+            - name: date_end
+              value: 2024-12-01
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/education/1
+        name: find education by id
+        meta:
+          id: req_c61a5c6dc6ac45fb8410824c55a53530
+          created: 1781452515414
+          modified: 1781457494768
+          isPrivate: false
+          description: ""
+          sortKey: -1781047594170.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/education
+        name: find education
+        meta:
+          id: req_fed6dd27cf6f4ce5a516adb0708af44a
+          created: 1781452515414
+          modified: 1781457492466
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321787
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/education
+        name: update Education
+        meta:
+          id: req_a0bfa6aa95af4cbc9a093ef5b86a640c
+          created: 1781457484908
+          modified: 1781457489002
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321862
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: name
+              value: Svay Rieng University
+            - name: major
+              value: IT
+              description: ""
+              disabled: false
+            - name: image
+              value: ""
+              description: ""
+              disabled: false
+              multiline: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+            - name: gpa
+              value: "3.49"
+              description: ""
+              disabled: false
+            - name: date_start
+              value: 2020-12-01
+              description: ""
+              disabled: false
+            - name: date_end
+              value: 2024-12-01
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/education/uploads
+        name: uploads degrees
+        meta:
+          id: req_cc15064718cc49319269e772d6f5a336
+          created: 1781513528541
+          modified: 1781533668260
+          isPrivate: false
+          description: ""
+          sortKey: -1781047594070.5
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - name: by_education
+              value: "1"
+              description: ""
+              disabled: false
+              multiline: false
+              type: text
+            - name: images
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\Admin\Pictures\Screenshots\Screenshot 2026-06-10 182135.png
+              type: file
+            - name: images
+              value: ""
+              description: ""
+              disabled: false
+              fileName: C:\Users\Admin\Pictures\Satoru_Gojo_29.png
+              type: file
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/education/remove_upload/4
+        name: remove degrees
+        meta:
+          id: req_3188ea2407824b769771ff2070dd6b9e
+          created: 1781533679110
+          modified: 1781698207127
+          isPrivate: false
+          description: ""
+          sortKey: -1781025230312.25
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: skill
+    meta:
+      id: fld_f6e74665d51f4813b8bf58514d908ca8
+      created: 1781613298346
+      modified: 1781613298346
+      sortKey: -1780951967223
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/skill
+        name: addSkill
+        meta:
+          id: req_0f52558994e64ce1966a596afa100649
+          created: 1781613298346
+          modified: 1781613575552
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321887
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"name": "React.js",
+            	"rating": "60",
+            	"logo_url": "https://1000logos.net/wp-content/uploads/2023/10/React-Logo.png"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/skill/2
+        name: find profile by id
+        meta:
+          id: req_15c37cfd6daf4528b01f0219dd7833b8
+          created: 1781613298346
+          modified: 1781614347448
+          isPrivate: false
+          description: ""
+          sortKey: -1781047594170.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/skill
+        name: find profile
+        meta:
+          id: req_bee6fd83c5ca4278a358ffbcfffe20fe
+          created: 1781613298346
+          modified: 1781613647198
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321787
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/skill/1
+        name: update skill
+        meta:
+          id: req_ebc4a1b227544003b6a60739757a5611
+          created: 1781613298346
+          modified: 1781613639972
+          isPrivate: false
+          description: ""
+          sortKey: -1781092321837
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"name": "Broo",
+            	"rating": "61",
+            	"logo_url": "https://1000logos.net/wp-content/uploads/2023/10/React-Logo.png"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: feature
+    meta:
+      id: fld_a1eb16a988e34f3a8c13f50ff0199aba
+      created: 1781704394002
+      modified: 1781704394002
+      sortKey: -1779519626886.5
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/feature
+        name: find feature
+        meta:
+          id: req_2a2d5d6b4437495ea0c416397a7dd6bc
+          created: 1781704394002
+          modified: 1781704495010
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653584
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/feature
+        name: add feature
+        meta:
+          id: req_39d018443c7e4d48b9e41bbb8535a30d
+          created: 1781704394002
+          modified: 1781704577109
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653684
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "ss",
+            	"description": "s",
+            	"by_work": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/feature/1
+        name: delete feature
+        meta:
+          id: req_e15580bb72aa473aacebbc3a78f7ba13
+          created: 1781704394002
+          modified: 1781704509531
+          isPrivate: false
+          description: ""
+          sortKey: -1779519648990.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/feature/1
+        name: find feature by id
+        meta:
+          id: req_947a17efa38349518f7a57f388fed29b
+          created: 1781704469786
+          modified: 1781704504563
+          isPrivate: false
+          description: ""
+          sortKey: -1779761151337.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Technology
+    meta:
+      id: fld_3bd2bd29629d4ecd96987ebd77b0b62b
+      created: 1781705041215
+      modified: 1781705041215
+      sortKey: -1779278114715.75
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/technology
+        name: find
+        meta:
+          id: req_1c562c09af0f4d26b5511f3c0bfa7efa
+          created: 1781705041215
+          modified: 1781705088543
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653584
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/technology/1
+        name: " find id"
+        meta:
+          id: req_5e312a0c66db438486bcbf7972aea847
+          created: 1781705041215
+          modified: 1781705091577
+          isPrivate: false
+          description: ""
+          sortKey: -1779761151337.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/technology/1
+        name: delete
+        meta:
+          id: req_b6d5fc68072543959275d3b2eacecfc6
+          created: 1781705041215
+          modified: 1781705120856
+          isPrivate: false
+          description: ""
+          sortKey: -1779519648990.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/technology
+        name: add
+        meta:
+          id: req_f5992ea1368f4e4e904957956eec4402
+          created: 1781705041215
+          modified: 1781705124390
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653684
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "ss",
+            	"by_work": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Technology​ Tool
+    meta:
+      id: fld_21678ceff19a4d7db5bb261e5c7cf987
+      created: 1781706648548
+      modified: 1781706648548
+      sortKey: -1779157358630.375
+      description: ""
+    children:
+      - url: http://localhost:5002/v1/tool
+        name: add
+        meta:
+          id: req_54823221205f49a3b4ef5a34bf10181c
+          created: 1781706648548
+          modified: 1781707002252
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653684
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "ss",
+            	"by_technology": "2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/tool/3
+        name: delete
+        meta:
+          id: req_6b207b02ce0b434fbeb1b6c721c6725f
+          created: 1781706648548
+          modified: 1781707039726
+          isPrivate: false
+          description: ""
+          sortKey: -1779519648990.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.6.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/tool
+        name: find
+        meta:
+          id: req_878e266349fe45f6ba2ce46f22c3eb79
+          created: 1781706648548
+          modified: 1781706954184
+          isPrivate: false
+          description: ""
+          sortKey: -1780002653584
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:5002/v1/tool/2
+        name: " find id"
+        meta:
+          id: req_ba1ce18d966a453b89c275b7d09dd853
+          created: 1781706648548
+          modified: 1781706972770
+          isPrivate: false
+          description: ""
+          sortKey: -1779761151337.25
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e5372d155a55022c5d97ab0ca60e27be77deb410
+    created: 1780002558676
+    modified: 1780002558676
+environments:
+  name: Base Environment
+  meta:
+    id: env_e5372d155a55022c5d97ab0ca60e27be77deb410
+    created: 1780002558674
+    modified: 1780002558674
+    isPrivate: false
