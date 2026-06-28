@@ -13,6 +13,7 @@ import { skillRouter } from './routes/skillRouter';
 import { featureRouter } from './routes/featureRouter';
 import { technologyRouter } from './routes/technologyRouter';
 import { toolRouter } from './routes/toolRouter';
+import path from 'path';
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
@@ -20,6 +21,7 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // middleware
 app.use(logger)
 //  Router userRouter
@@ -35,10 +37,10 @@ app.use("/v1/tool", toolRouter)
 
 // Start server AFTER DB connection
 AppDataSource.initialize()
-  .then(() => {console.log("Database connected ✅ - server.ts:38");})
-  .catch((error) => {console.error("Database connection failed ❌ - server.ts:39", error);});
+  .then(() => {console.log("Database connected ✅ - server.ts:40");})
+  .catch((error) => {console.error("Database connection failed ❌ - server.ts:41", error);});
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:41`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:42`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:43`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:43`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:44`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:45`);
 });
