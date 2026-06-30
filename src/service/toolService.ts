@@ -30,6 +30,9 @@ export const toolService = {
   // get tool -------------------
   async findOne(id: number) {
     const tool = await repo.findOne({
+      relations: {
+        by_technology: true,
+      },
       select: {
         id: true,
         name: true,

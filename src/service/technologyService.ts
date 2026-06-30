@@ -16,6 +16,9 @@ export const technologyService = {
   // get technology
   async find() {
     const technology = await repo.find({
+      relations: {
+        by_work: true,
+      },
       select: {
         id: true,
         name: true,

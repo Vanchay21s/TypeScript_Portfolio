@@ -8,19 +8,22 @@ export const featureService = {
     const feature = repo.create({
       name: dto.name,
       description: dto.description,
-      by_work: {id: dto.by_work}
+      by_work: { id: dto.by_work },
     });
     return await repo.save(feature);
   },
   // get feature
   async find() {
     const feature = await repo.find({
+      relations: {
+        by_work: true,
+      },
       select: {
         id: true,
         name: true,
         description: true,
-        by_work: {id: true, name: true},
-        created_at: true
+        by_work: { id: true, name: true },
+        created_at: true,
       },
       order: { created_at: "DESC" },
     });
@@ -36,8 +39,8 @@ export const featureService = {
         id: true,
         name: true,
         description: true,
-        by_work: {id: true, name: true},
-        created_at: true
+        by_work: { id: true, name: true },
+        created_at: true,
       },
       where: { id: id },
     });
@@ -53,8 +56,8 @@ export const featureService = {
         id: true,
         name: true,
         description: true,
-        by_work: {id: true, name: true},
-        created_at: true
+        by_work: { id: true, name: true },
+        created_at: true,
       },
       where: { id: id },
     });

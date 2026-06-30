@@ -28,6 +28,7 @@ export const addFeature = async (req: Request, res: Response) => {
 export const getFeature = async (req: Request, res: Response) => {
   try {
     const feature = await featureService.find();
+    console.log(feature)
     return res.json({
       message: "Get all feature succesfully.",
       status: true,
