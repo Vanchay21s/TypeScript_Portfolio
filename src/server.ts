@@ -22,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads")); //This lets the browser access images like: http://localhost:5000/uploads/image-17100022222.png
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // middleware
 app.use(logger)
 //  Router userRouter
@@ -37,10 +38,10 @@ app.use("/v1/tool", toolRouter)
 
 // Start server AFTER DB connection
 AppDataSource.initialize()
-  .then(() => {console.log("Database connected ✅ - server.ts:40");})
-  .catch((error) => {console.error("Database connection failed ❌ - server.ts:41", error);});
+  .then(() => {console.log("Database connected ✅ - server.ts:41");})
+  .catch((error) => {console.error("Database connection failed ❌ - server.ts:42", error);});
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:43`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:44`);
-  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:45`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/apidocumentation  server.js:46 - server.ts:44`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/v1  server.js:47 - server.ts:45`);
+  console.log(`✅ Server is running on http://localhost:${PORT}/  server.js:48 - server.ts:46`);
 });
