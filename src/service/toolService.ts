@@ -6,18 +6,21 @@ const repo = AppDataSource.getRepository(TechnologyTool);
 export const toolService = {
   async create(dto: toolDTO) {
     const tool = repo.create({
-        name: dto.name,
-        by_technology: {id: dto.by_technology}
+      name: dto.name,
+      by_technology: { id: dto.by_technology },
     });
     return await repo.save(tool);
   },
   // get tool
   async find() {
     const tool = await repo.find({
+      relations: {
+        by_technology: true,
+      },
       select: {
         id: true,
         name: true,
-        by_technology: {id: true, name: true},
+        by_technology: { id: true, name: true },
         created_at: true,
       },
       order: { created_at: "DESC" },
@@ -36,7 +39,7 @@ export const toolService = {
       select: {
         id: true,
         name: true,
-        by_technology: {id: true, name: true},
+        by_technology: { id: true, name: true },
         created_at: true,
       },
       where: { id: id },
@@ -52,8 +55,8 @@ export const toolService = {
       select: {
         id: true,
         name: true,
-        by_technology: {id: true, name: true},
-        created_at: true
+        by_technology: { id: true, name: true },
+        created_at: true,
       },
       where: { id: id },
     });
