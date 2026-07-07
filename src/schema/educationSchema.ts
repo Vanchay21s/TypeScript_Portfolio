@@ -6,7 +6,7 @@ export const educationSchema = z.object({
     gpa: z.string().optional(),
     date_start: z.string().optional(),
     date_end: z.string().optional(),
-    image: z.custom<Express.Multer.File>(),
+    logo: z.custom<Express.Multer.File>(),
 })
 export type educationDTO = z.infer<typeof educationSchema>
 

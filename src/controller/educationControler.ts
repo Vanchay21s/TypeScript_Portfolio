@@ -3,7 +3,10 @@ import { educationSchema, uploadDegresSchema } from "../schema/educationSchema";
 import { educationService } from "../service/eductionService";
 
 export const addEducation = async (req: Request, res: Response) => {
-  const education = educationSchema.safeParse({ ...req.body, image: req.file });
+  console.log(req.file)
+
+  const education = educationSchema.safeParse({ ...req.body, logo: req.file });
+  console.log(education)
   if (!education.success) {
     return res.json({
       message: education.error.issues,
@@ -62,7 +65,7 @@ export const getEducationById = async (req: Request, res: Response) => {
 }
 export const updateEducation = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
-  const reqProfile = educationSchema.safeParse({...req.body, image: req.file})
+  const reqProfile = educationSchema.safeParse({...req.body, logo: req.file})
   if(!reqProfile.success){
     return res.json({
       message: reqProfile.error.issues,
