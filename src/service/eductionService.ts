@@ -66,7 +66,7 @@ export const educationService = {
       {
         name: dto.name,
         major: dto.major,
-        gpa: dto.date_start,
+        gpa: dto.gpa,
         date_start: dto.date_start,
         date_end: dto.date_end,
         logo: dto.logo.filename,
