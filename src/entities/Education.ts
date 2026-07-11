@@ -15,8 +15,8 @@ export class Education {
     date_start: Date
     @Column({type: "date"})
     date_end: Date
-    @Column()
-    logo: string
+    @Column({ type: "text", nullable: true })
+    logo: string | null
 
     @OneToMany(
         () => EducationDegres, 
