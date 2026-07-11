@@ -14,7 +14,7 @@ export const educationService = {
       gpa: dto.gpa,
       date_start: dto.date_start,
       date_end: dto.date_end,
-      logo: dto.logo.filename,
+      logo: dto.logo?.filename,
     });
     return await repo.save(user);
   },
@@ -69,7 +69,7 @@ export const educationService = {
         gpa: dto.gpa,
         date_start: dto.date_start,
         date_end: dto.date_end,
-        logo: dto.logo.filename,
+        logo: dto.logo?.filename,
       },
     );
     if (education.affected === 0) {

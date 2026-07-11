@@ -5,8 +5,8 @@ services:
     container_name: typescript-api
     ports:
       - "${PORT}:${PORT}"
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
     #   - /app/node_modules
     depends_on:
       - postgres
