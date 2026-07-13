@@ -13,6 +13,8 @@ export const skillService = {
     });
     return await repo.save(skill);
   },
+
+  // find skill ------------
   async find() {
     const skill = await repo.find();
     return skill;

@@ -3,7 +3,6 @@ import { skillSchema } from "../schema/skillSchema";
 import { skillService } from "../service/skillService";
 
 export const addSkill = async (req: Request, res: Response) => {
-    console.log("sadsd - skillController.ts:6")
   const reqSkill = skillSchema.safeParse(req.body);
   if (!reqSkill.success) {
     return res.json({
@@ -13,6 +12,7 @@ export const addSkill = async (req: Request, res: Response) => {
   }
   try {
     const skill = await skillService.create(reqSkill.data);
+    console.log(skill)
     return res.json({
       message: "add skill succesfully.",
       status: true,
