@@ -2,9 +2,8 @@ import { Request, Response } from "express";
 import { educationSchema, uploadDegresSchema } from "../schema/educationSchema";
 import { educationService } from "../service/eductionService";
 
+// addEducation -------------------------------------------------------------------------
 export const addEducation = async (req: Request, res: Response) => {
-  console.log(req.file)
-
   const education = educationSchema.safeParse({ ...req.body, logo: req.file });
   console.log(education)
   if (!education.success) {
@@ -29,10 +28,11 @@ export const addEducation = async (req: Request, res: Response) => {
     })
   }
 };
+
+// getAllEducation -------------------------------------------------------------------------
 export const getAllEducation= async (req: Request, res: Response) => {
   try {
     const profile = await educationService.find()
-    console.log(profile)
     return res.json({
       message: "Gel all profile successfully...",
       status: true,
@@ -46,6 +46,8 @@ export const getAllEducation= async (req: Request, res: Response) => {
     })
   }
 }
+
+// getEducationById -------------------------------------------------------------------------
 export const getEducationById = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
   try{
@@ -63,6 +65,8 @@ export const getEducationById = async (req: Request, res: Response) => {
     })
   }
 }
+
+// updateEducation -------------------------------------------------------------------------
 export const updateEducation = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
   const reqProfile = educationSchema.safeParse({...req.body, logo: req.file})
@@ -87,10 +91,29 @@ export const updateEducation = async (req: Request, res: Response) => {
     })
   }
 }
+
+// deteleEducation -------------------------------------------------------------------------
+export const deteleEducation = async (req: Request, res: Response) => {
+  const id = Number(req.params.id)
+  try {
+    const education = await educationService.deleteOne(id)
+    return res.json({
+      message: "delete education successfully...",
+      status: true,
+      data:  education
+    })
+  } catch (err: any) {
+    console.error(err.message)
+    res.status(500).json({
+      message: "Internal server error",
+      error: err.message
+    })
+  }
+}
+
+// educationUpload -------------------------------------------------------------------------
 export const educationUpload = async (req: Request, res: Response) => {
-  console.log("asdasd - educationControler.ts:88")
   const reqUploads = uploadDegresSchema.safeParse({...req.body, images: req.files})
-  
   if (!reqUploads.success) {
     return res.json({
       msg: "asdasdasd",
@@ -113,6 +136,8 @@ export const educationUpload = async (req: Request, res: Response) => {
     })
   }
 } 
+
+// educationDeleteUploads -------------------------------------------------------------------------
 export const educationDeleteUploads = async (req: Request, res: Response) => {
   const id = Number(req.params.id)
   try {

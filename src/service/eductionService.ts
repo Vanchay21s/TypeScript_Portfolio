@@ -7,6 +7,8 @@ import { id } from "zod/locales";
 const repo = AppDataSource.getRepository(Education);
 const degreesRepo = AppDataSource.getRepository(EducationDegres);
 export const educationService = {
+
+  // create -------------------------------------------------------
   async create(dto: educationDTO) {
     const user = repo.create({
       name: dto.name,
@@ -18,7 +20,8 @@ export const educationService = {
     });
     return await repo.save(user);
   },
-  // get education
+
+  // find -------------------------------------------------------
   async find() {
     const education = await repo.find({
       select: {
@@ -39,7 +42,8 @@ export const educationService = {
     }
     return education;
   },
-  // get profile -------------------
+
+  // find one -------------------------------------------------------
   async findOne(id: number) {
     const education = await repo.findOne({
       select: {
@@ -59,7 +63,8 @@ export const educationService = {
     }
     return education;
   },
-  // update education -----------------------------------
+
+  // update one -------------------------------------------------------
   async updateOne(id: number, dto: educationDTO) {
     const education = await repo.update(
       { id: id },
@@ -90,7 +95,27 @@ export const educationService = {
     });
     return result;
   },
-  // uploads degrees ----------------
+
+  // delete one -------------------------------------------------------
+  async deleteOne(id: number) {
+    const result = await repo.findOne({
+      select: {
+        id: true,
+        name: true,
+        major: true,
+        gpa: true,
+        date_start: true,
+        date_end: true,
+        logo: true,
+        created_at: true,
+      },
+      where: { id: id },
+    });
+    await repo.delete(id)
+    return result
+  },
+
+  // uploads degrees ----------------------------------------------------------
   async uploadDegres(dto: uploadDegresDTO) {
     const degrees = dto.images.map((file) =>
       degreesRepo.create({
@@ -107,7 +132,8 @@ export const educationService = {
     await degreesRepo.save(degrees);
     return degrees;
   },
-  // delete degrees ----------------------
+
+  // delete degrees -----------------------------------------------------------
   async deleteDegrees(id: number) {
     const degrees = await degreesRepo.findOne({
       select: {
