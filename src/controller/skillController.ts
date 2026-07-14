@@ -42,17 +42,38 @@ export const getSkill = async (req: Request, res: Response) => {
     });
   }
 };
+export const getOneSkill = async (req: Request, res: Response) => {
+  const id = Number(req.params.id)
+  try{
+    const skill = await skillService.findOne(id)
+    return res.json({
+      message: "Get all education successfully...",
+      status: true,
+      data:  skill
+    })
+  }catch (err: any){
+    console.error(err.message)
+    return res.status(500).json({
+      messgae: "Internal server error",
+      error: err.message,
+    })
+  }
+}
 export const updateSkill = async (req: Request, res: Response) => {
+  console.log("Controller updateSkill is OK1")
   const id = Number(req.params.id);
   const reqSkill = skillSchema.safeParse(req.body);
+  console.log("Controller updateSkill is OK2", id, reqSkill.data)
   if (!reqSkill.success) {
     return res.json({
       message: reqSkill.error.issues,
       status: false,
     });
   }
+  
   try {
     const skill = await skillService.updateOne(id, reqSkill.data);
+    console.log(reqSkill.data)
     return res.json({
       message: "Updated skill succesfully.",
       status: true,
